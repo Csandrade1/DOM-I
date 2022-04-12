@@ -53,15 +53,16 @@ logoImg.src = "http://localhost:9000/img/logo.png";
 const ctaImg = document.querySelector("#cta-img");
 ctaImg.src = "http://localhost:9000/img/cta.png";
 
-const middleImg = document.querySelector("#middle-img");
-middleImg.src = "http://localhost:9000/img/accent.png";
+const accentImg = document.querySelector("#middle-img");
+accentImg.src = "http://localhost:9000/img/accent.png";
 
 //NAVIGATION BAR
 
 const navLinks = document.querySelectorAll("nav a");
-console.log(navLinks);
+//console.log(navLinks);
 for (let i = 0; i < navLinks.length; i++) {
-  navLinks[i].textContent = "test";
+  navLinks[i].textContent = siteContent.nav[`nav-item-${i + 1}`];
+  navLinks[i].classList.add("italic");
 }
 // navLinks[0].textContent = "Services";
 // navLinks[1].textContent = "Products";
@@ -78,7 +79,50 @@ for (let i = 0; i < navLinks.length; i++) {
 
 //CTA
 
-const ctaTitle = document.querySelectorAll(".cta-text");
-ctaTitle[0].textContent = "DOM Is Awesome";
+const ctaTitle = document.querySelector(".cta-text");
+//console.log(ctaTitle.children[1]);
+ctaTitle.children[0].textContent = siteContent.cta.h1;
+ctaTitle.children[1].textContent = siteContent.cta.button;
 
 // TOP CONTENT
+
+const topContent = document.querySelector(".top-content");
+topContent.children[0].children[0].textContent =
+  siteContent["main-content"]["features-h4"];
+topContent.children[0].children[1].textContent =
+  siteContent["main-content"]["features-content"];
+topContent.children[1].children[0].textContent =
+  siteContent["main-content"]["about-h4"];
+topContent.children[1].children[1].textContent =
+  siteContent["main-content"]["about-content"];
+
+// BOTTOM CONTENT
+
+const bottomContent = document.querySelector(".bottom-content");
+bottomContent.children[0].children[0].textContent =
+  siteContent["main-content"]["services-h4"];
+bottomContent.children[0].children[1].textContent =
+  siteContent["main-content"]["services-content"];
+bottomContent.children[1].children[0].textContent =
+  siteContent["main-content"]["product-h4"];
+bottomContent.children[1].children[1].textContent =
+  siteContent["main-content"]["product-content"];
+bottomContent.children[2].children[0].textContent =
+  siteContent["main-content"]["vision-h4"];
+bottomContent.children[2].children[1].textContent =
+  siteContent["main-content"]["vision-content"];
+
+// CONTACT INFO
+
+const contactTitle = document.querySelector(".contact h4");
+contactTitle.textContent = siteContent.contact["contact-h4"];
+
+const contactInfo = document.querySelectorAll(".contact p");
+contactInfo[0].textContent = siteContent.contact["address"];
+contactInfo[1].textContent = siteContent.contact["phone"];
+contactInfo[2].textContent = siteContent.contact["email"];
+
+// COPYRIGHT
+const copyrightText = document.querySelector("footer");
+copyrightText.textContent = siteContent.footer.copyright;
+copyrightText.classList.add("bold");
