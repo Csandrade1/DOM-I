@@ -123,6 +123,6 @@ contactInfo[1].textContent = siteContent.contact["phone"];
 contactInfo[2].textContent = siteContent.contact["email"];
 
 // COPYRIGHT
-const copyrightText = document.querySelector("footer");
+const copyrightText = document.querySelector("footer a");
 copyrightText.textContent = siteContent.footer.copyright;
 copyrightText.classList.add("bold");
